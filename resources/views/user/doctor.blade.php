@@ -26,8 +26,3 @@
       </div>
     </div>
   </div>
-
-  sdajdasas
-  affsfas
-  fsafesfsafessafsa
-  fasfasfafsa
