@@ -265,7 +265,7 @@ a.text-dark:hover, a.text-dark:focus {
 /* Buttons */
 .btn-primary {
   color: #fff;
-  background-color: var(--blue);
+  background-color: #007bff;
   border-color: transparent;
 }
 

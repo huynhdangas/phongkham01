@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Appointment;
 
 class HomeController extends Controller
 {
@@ -29,5 +30,25 @@ class HomeController extends Controller
             $doctor = doctor::all();
             return view('user.home', compact('doctor'));
         }
+    }
+    public function appointment(Request $request) {
+        $data = new appointment;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->date = $request->date;
+        $data->doctor = $request->doctor;
+        $data->message = $request->message;
+        $data->status = 'In Progress';
+
+        if(Auth::id()) {
+            $data->user_id = Auth::user()->id;
+
+        }
+
+        $data->save();
+
+        return redirect()->back()->with('message', 'Đặt lịch thành công!!! Chúng tôi sẽ sớm liên hệ với bạn.');
+
+
     }
 }

@@ -19,7 +19,16 @@
   <link rel="stylesheet" href="{{asset('/assets/vendor/animate/animate.css')}}">
 
   <link rel="stylesheet" href="{{asset('/assets/css/theme.css')}}">
+
+
+  
+
 </head>
+                    @if(session()->has('message'))      
+                        <div class="alert alert-success">
+                        <strong>Success!</strong> {{session()->get('message')}}
+                        </div>                        
+                    @endif
 <body>
 
   <!-- Back to top button -->
