@@ -1,6 +1,6 @@
 <div class="page-section">
     <div class="container">
-      <h1 class="text-center mb-5 wow fadeInUp">Bác sĩ</h1>
+      <h1 class="text-center mb-5 wow fadeInUp" style="font-size:2.5rem; font-weight:500">Bác sĩ</h1>
 
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
 

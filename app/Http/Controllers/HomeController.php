@@ -48,7 +48,19 @@ class HomeController extends Controller
         $data->save();
 
         return redirect()->back()->with('message', 'Đặt lịch thành công!!! Chúng tôi sẽ sớm liên hệ với bạn.');
-
-
     }
+    public function myappointment() {
+        if(Auth::id()) {
+            $user_id = Auth::user()->id;
+            $appoint = appointment::where('user_id', $user_id)->get();
+            return view('user.my_appointment', compact('appoint')); 
+        }else {
+            return redirect()->back();
+        }
+    }
+    public function cancel_appoint($id) {
+        $data = appointment::find($id);
+        $data->delete();
+        return redirect()->back();
+    }       
 }
