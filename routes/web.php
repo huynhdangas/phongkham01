@@ -27,10 +27,19 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
+//admin
 Route::get('/add_doctor_view', [AdminController::class,'add_doctor_view']);
 Route::post('/upload_doctor', [AdminController::class,'upload_doctor']);
+Route::get('/show_appointment', [AdminController::class,'show_appointment']);
+Route::get('/approved/{id}', [AdminController::class,'approved']);
+Route::get('/canceled/{id}', [AdminController::class,'canceled']);
+Route::get('/delete_doctor/{id}', [AdminController::class,'delete_doctor']);
+Route::get('/show_doctor', [AdminController::class,'show_doctor']);
 
+
+
+
+//user
 Route::post('/appointment', [HomeController::class,'appointment']);
 Route::get('/myappointment', [HomeController::class,'myappointment']);
 Route::get('/cancel_appoint/{id}', [HomeController::class,'cancel_appoint']);

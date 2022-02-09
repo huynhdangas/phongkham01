@@ -59,7 +59,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="#"><span class="text-primary">Đăng Sang</span>-Clinic</a>
+        <a class="navbar-brand" href="{{url('/')}}"><span class="text-primary">Đăng Sang</span>-Clinic</a>
 
         <form action="#">
           <div class="input-group input-navbar">
@@ -145,7 +145,7 @@
                 <td>{{$appoints->date}}</td>
                 <td>{{$appoints->message}}</td>
                 <td>{{$appoints->status}}</td>
-                <td><a href="{{url('cancel_appoint', $appoints->id)}}" onclick="return confirm('Bạn muốn huỷ thật chứ?')" class="btn btn-danger">Huỷ</a></td>
+                <td><a href="{{url('cancel_appoint', $appoints->id)}}" onclick="return confirm('Bạn muốn huỷ thật chứ?')" class="badge badge-danger" style="width:50px;">Huỷ</a></td>
             </tr>
             
             

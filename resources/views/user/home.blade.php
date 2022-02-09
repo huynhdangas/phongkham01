@@ -59,7 +59,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="#"><span class="text-primary">Đăng Sang</span>-Clinic</a>
+        <a class="navbar-brand" href="{{url('home')}}"><span class="text-primary">Đăng Sang</span>-Clinic</a>
 
         <form action="#">
           <div class="input-group input-navbar">

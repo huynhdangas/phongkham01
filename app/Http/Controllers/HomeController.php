@@ -37,6 +37,7 @@ class HomeController extends Controller
         $data->email = $request->email;
         $data->date = $request->date;
         $data->doctor = $request->doctor;
+        $data->phone = $request->phone;
         $data->message = $request->message;
         $data->status = 'In Progress';
 
