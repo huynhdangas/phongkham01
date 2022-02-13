@@ -43,6 +43,7 @@
                             <th>Status</th>
                             <th>Chấp nhận</th>
                             <th>Huỷ</th>
+                            <th>Gửi mail</th>
                             
                           </tr>
                         </thead>
@@ -58,6 +59,7 @@
                             <td><label class="badge badge-warning">{{$data_appoints->status}}</label></td>
                             <td><a class="badge badge-success" href="{{url('approved', $data_appoints->id)}}">Chấp nhận</a></td>
                             <td><a class="badge badge-danger" href="{{url('canceled', $data_appoints->id)}}">Huỷ</a></td>
+                            <td><a class="badge badge-primary" href="{{url('email_view', $data_appoints->id)}}">Gửi</a></td>
                           </tr>
                         @endforeach  
                         </tbody>

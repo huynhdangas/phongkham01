@@ -59,7 +59,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="{{url('home')}}"><span class="text-primary">Đăng Sang</span>-Clinic</a>
+        <a class="navbar-brand" href="{{url('/')}}"><span class="text-primary">Đăng Sang</span>-Clinic</a>
 
         <form action="#">
           <div class="input-group input-navbar">
@@ -77,19 +77,19 @@
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Trang chủ</a>
+              <a class="nav-link" href="{{url('/')}}">Trang chủ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="{{url('/')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Bác sĩ</a>
+              <a class="nav-link" href="{{url('/')}}">Bác sĩ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog.html">Tin tức</a>
+              <a class="nav-link" href="{{url('/')}}">Tin tức</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Liên hệ</a>
+              <a class="nav-link" href="{{url('/')}}">Liên hệ</a>
             </li>
 
             @if(Route::has('login'))

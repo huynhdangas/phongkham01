@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class,'index']);
 
-Route::get('/home', [HomeController::class,'redirect']);
+Route::get('/home', [HomeController::class,'redirect'])->middleware('auth', 'verified');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -35,7 +35,9 @@ Route::get('/approved/{id}', [AdminController::class,'approved']);
 Route::get('/canceled/{id}', [AdminController::class,'canceled']);
 Route::get('/delete_doctor/{id}', [AdminController::class,'delete_doctor']);
 Route::get('/update_doctor/{id}', [AdminController::class,'update_doctor']);
+Route::get('/email_view/{id}', [AdminController::class,'email_view']);
 Route::post('/edit_doctor/{id}', [AdminController::class,'edit_doctor']);
+Route::post('/send_email/{id}', [AdminController::class,'send_email']);
 Route::get('/show_doctor', [AdminController::class,'show_doctor']);
 
 

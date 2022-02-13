@@ -5,12 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Appointment;
+use Illuminate\Support\Facades\Auth;
+
+use Notification;
+use App\Notifications\SendEmailNotification;
 
 class AdminController extends Controller
 {
     public function add_doctor_view() {
+        if (Auth::id()) {
+            if(Auth::user()->usertype == 1){
+                return view('admin.add_doctor');
 
-        return view('admin.add_doctor');
+            }else {
+                return redirect()->back();
+            }
+        }else {
+            return redirect('login');
+        }
     }
     public function upload_doctor(Request $request) {
         $doctor = new doctor;
@@ -29,8 +41,18 @@ class AdminController extends Controller
     }
     public function show_appointment() {
         $data_appoint = appointment::all();
+        if (Auth::id()) {
+            if(Auth::user()->usertype == 1){
+                return view('admin.show_appointment', compact('data_appoint'));
 
-        return view('admin.show_appointment', compact('data_appoint'));
+            }else {
+                return redirect()->back();
+            }
+        }else {
+            return redirect('login');
+        }
+
+        
     }
     public function approved($id) {
         $data = appointment::find($id);
@@ -83,6 +105,23 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message', 'Sửa bác sĩ thành công!!!');
 
+    }
+    public function email_view($id) {
+        $data = appointment::find($id);
+
+        return view('admin.email_view', compact('data'));
+    }
+    public function send_email(Request $request, $id) {
+        $data = appointment::find($id);
+        $details = [
+            'greeting' => $request->greeting,
+            'body' => $request->body,
+            'actiontext' => $request->actiontext,
+            'actionurl' => $request->actionurl,
+            'endpart' => $request->endpart
+        ];
+        Notification::send($data, new SendEmailNotification($details));
+        return redirect()->back()->with('message', 'Gửi mail thành công!!!');
     }
     
 }
